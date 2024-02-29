@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 public interface IOperationCustomer {
-    public String getFullName();
-    public void makeSavingDeposits();
-    public void makeSavingsWithdrawals();
-    public void makeCurrentWithdrawals();
-    public void makeCreditCardPayments();
-    public void requestLoan();
-    public void makeLoanPayments();
+
+    public void checkBalance( String accountNumber); // consultar Saldo
+    /*public void makeSavingDeposits(); //hacer depósitos de ahorro
+    public void makeSavingsWithdrawals(); //hacer retiros de ahorros
+    public void makeCurrentWithdrawals(); //hacer retiros corriente
+    public void makeCreditCardPayments(); //realizar pagos con tarjeta de crédito
+    public void requestLoan(); // pedir prestamo
+    public void makeLoanPayments(); // hacer pagos de préstamos*/
 }

@@ -1,8 +1,17 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class Menu {
 
-    public static void action(int option) {
+    Bank bank = new Bank();
+    Administrator administrator = new Administrator(bank);
+    BankLoan bankLoan = new BankLoan();
+    ApplyforLoan applyforLoan = new ApplyforLoan(bankLoan);
+
+
+    public  void action(int option) {
+
         Scanner entrada = new Scanner(System.in);
         int optionMenu;
         double amount, remove;
@@ -13,51 +22,52 @@ public class Menu {
                 System.out.println("1.- Cuenta de Ahorro");
                 System.out.println("2.- Cuenta Corriente");
                 optionMenu = entrada.nextInt();
+                if (optionMenu==1){
+                    administrator.registerCustomer("Ahorro");
+                }else if (optionMenu==2){
+
+                    administrator.registerCustomer("Corriente");
+                }
 
                 break;
             case 2:
+
                 System.out.println("Ingrese el numero de cuenta:\n");
-                optionMenu = entrada.nextInt();
+                String  number = entrada.nextLine();
+                bank.showBalance(number);
+
+                break;
             case 3:
                 System.out.println("Ingrese el numero de cuenta:\n");
-                optionMenu = entrada.nextInt();
+                String noAccount = entrada.nextLine();
                 System.out.println("Ingrese la cantidad a depositar:\n");
                 amount = entrada.nextDouble();
                 System.out.println(amount);
                 if (amount > 0.0){
-                    System.out.println("Deposito");
+                    bank.depositToAccount(noAccount,amount);
                 }
                 break;
             case 4:
                 System.out.println("Ingrese el numero de cuenta:\n");
-                optionMenu = entrada.nextInt();
+                String noAcc = entrada.nextLine();
                 System.out.println("Ingrese la cantidad a retirar:\n");
                 remove = entrada.nextDouble();
                 if (remove > 0.0 ){
-                    System.out.println("retiro");
+                    bank.withdrawFromAccount(noAcc, remove);
                 }
                 break;
             case 5:
                 System.out.println("Solicitar Prestamo:\n");
+                applyforLoan.registerLoad();
                 break;
             case 6:
-                System.out.println("Ingrese numero del prestamos:\n");
+                System.out.println("Ingrese id del prestamos:\n");
                 optionMenu = entrada.nextInt();
-                System.out.println("Ingrese la cantidad a pagar:\n");
+                System.out.println("Ingrese la cantidad a depositar:\n");
                 amount = entrada.nextDouble();
                 break;
             case 7:
                 System.out.println("Solicitar tarjeta de credito:\n");
-                break;
-            case 8:
-                System.out.println("Ingrese el numero de tarjeta de credito:\n");
-                optionMenu = entrada.nextInt();
-                System.out.println("Ingrese la cantidad a pagar:\n");
-                amount = entrada.nextDouble();
-                System.out.println(amount);
-                if (amount > 0.0){
-                    System.out.println("Deposito");
-                }
                 break;
             default:
                 System.out.println("Opcion no valida!!! ");

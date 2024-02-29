@@ -1,71 +1,38 @@
 public class Account {
-
-    private  int accountType;
+    private  String accountType;
     private String accountNumber;
-    private String debitCard;
-    private String creditCard;
-    private Double balance;
-    private String holder;
+    private double amount;
 
-    public Account() {
-    }
-
-    public Account(int accountType, String accountNumber, String debitCard, String creditCard, Double balance, String holder) {
+    public Account(String accountType, String accountNumber, double amount) {
         this.accountType = accountType;
         this.accountNumber = accountNumber;
-        this.debitCard = debitCard;
-        this.creditCard = creditCard;
-        this.balance = balance;
-        this.holder = holder;
+        this.amount = amount;
     }
 
-    public int getAccountType() {
+    public  Account(){}
+
+    // Método para obtener el número de cuenta
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(int accountType) {
+    public void setAccountType(String accountType) {
         this.accountType = accountType;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
     }
 
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
-    public String getDebitCard() {
-        return debitCard;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setDebitCard(String debitCard) {
-        this.debitCard = debitCard;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
-
-    public String getCreditCard() {
-        return creditCard;
-    }
-
-    public void setCreditCard(String creditCard) {
-        this.creditCard = creditCard;
-    }
-
-    public Double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
-    public String getHolder() {
-        return holder;
-    }
-
-    public void setHolder(String holder) {
-        this.holder = holder;
-    }
-
-
 }
